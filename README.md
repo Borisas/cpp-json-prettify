@@ -33,6 +33,8 @@ Into this:
     }
 
 ## How to use:
+
+    #include "JSONPretify.h"
     
   This one doesn't add spaces inbetween colons.
   
