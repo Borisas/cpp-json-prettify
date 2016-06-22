@@ -6,10 +6,19 @@
 #include <vector>
 
 class JSONPretify : public std::string{
-
+    
 public:
     
-    JSONPretify(std::string j){this->assign(j); pretify(); };
+    JSONPretify(std::string j){
+        this->assign(j);
+        pretify();
+    };
+    JSONPretify(std::string j, bool colon_space){
+        this->assign(j);
+        pretify();
+        if(colon_space)
+            insertColonSpaces();
+    };
 private:
     void pretify(){
         std::regex var = std::regex(R"((\".+?\".*?(?=\{|\[|\,|\]|\}))|(\d+?))");
@@ -45,12 +54,15 @@ private:
                     std::string insert = "\n";
                     this->insert(pos_obj_start+1, insert);
                     it = pos_obj_start+insert.size();
+                    depth+=1;
+                    if(pos_obj_start-1 < 0 || pos_obj_start > this->size()) continue;
+                    
                     if(this->at(pos_obj_start-1) != ':'){
-                        std::string extra = generateSpaces(depth);
+                        std::string extra = generateSpaces(depth-1);
                         this->insert(pos_obj_start, extra);
                         it+=extra.size();
                     }
-                    depth+=1;
+                    
                     break;
                 }
                 case(OBJ_END):{
@@ -85,6 +97,16 @@ private:
         }
     };
     
+    void insertColonSpaces(){
+        long pos = 0;
+        while(pos < this->size() && pos != -1){
+            pos = this->find(":", pos);
+            if(pos == -1 || pos >= this->size()) break;
+            this->replace(pos,1, " : ");
+            
+            pos+=3;
+        }
+    }
     struct regex_pos{
         long pos;
         long length;
