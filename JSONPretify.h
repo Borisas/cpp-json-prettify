@@ -1,3 +1,6 @@
+#ifndef BORISAS_JSON_PRETIFY_H
+#define BORISAS_JSON_PRETIFY_H
+
 #include <string>
 #include <regex>
 #include <vector>
@@ -132,3 +135,5 @@ private:
         ARRAY_END = 5
     };
 };
+
+#endif
