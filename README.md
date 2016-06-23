@@ -44,9 +44,9 @@ Into this:
   Neither does this one
   
     std::string json = "... some json data ...";
-    std::string pretty = JSONPretify(json,false);
+    std::string pretty = JSONPretify(json,boris::JSONPrettify_specifics::Colons::TIGHT);
     
   This one adds spaces inbetween colons.
   
     std::string json = "... some json data ...";
-    std::string pretty = JSONPretify(json,true);
+    std::string pretty = JSONPretify(json,boris::JSONPrettify_specifics::Colons::SPACED);
