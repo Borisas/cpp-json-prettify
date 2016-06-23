@@ -77,7 +77,19 @@ namespace boris {
             
             long old_it             = it;
             
-            Position work_with = static_cast<Position>(lowestOf({ pos_tab.pos, pos_comma, pos_obj_start, pos_obj_end,pos_array_start,pos_array_end }));
+            Position work_with;
+            
+            {
+                std::vector<size_t> _temp = { pos_tab.pos, pos_comma, pos_obj_start, pos_obj_end,pos_array_start,pos_array_end };
+                
+                auto at = lowestOf(_temp);
+                
+            
+                if(_temp[at] > pretty.size())   break;
+                
+                
+                work_with = static_cast<Position>(at);
+            }
             
             switch( work_with ){
                     
