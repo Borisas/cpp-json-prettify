@@ -1,4 +1,4 @@
-# json-pretify
+# json-prettify
 C++. Make ugly json string into a readable pretty json string.
 
 # What does it do:
