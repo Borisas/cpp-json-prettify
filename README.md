@@ -34,19 +34,19 @@ Into this:
 
 ## How to use:
 
-    #include "JSONPretify.h"
+    #include "JSONPrettify.h"
     
   This one doesn't add spaces inbetween colons.
   
     std::string json = "... some json data ...";
-    std::string pretty = JSONPretify(json);
+    std::string pretty = boris::JSONPrettify(json);
   
   Neither does this one
   
     std::string json = "... some json data ...";
-    std::string pretty = JSONPretify(json,boris::JSONPrettify_specifics::Colons::TIGHT);
+    std::string pretty = boris::JSONPrettify(json,boris::JSONPrettify_specifics::Colons::TIGHT);
     
   This one adds spaces inbetween colons.
   
     std::string json = "... some json data ...";
-    std::string pretty = JSONPretify(json,boris::JSONPrettify_specifics::Colons::SPACED);
+    std::string pretty = boris::JSONPrettify(json,boris::JSONPrettify_specifics::Colons::SPACED);
