@@ -167,7 +167,7 @@ namespace boris {
                 break;
         }
         
-        if(spacing == Colons::TIGHT)
+        if(spacing == Colons::SPACED)
             insertColonSpaces(pretty);
         
         return pretty;
