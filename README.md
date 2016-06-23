@@ -1,4 +1,4 @@
-# json-pretify
+# json-prettify
 C++. Make ugly json string into a readable pretty json string.
 
 # What does it do:
@@ -34,19 +34,27 @@ Into this:
 
 ## How to use:
 
+```c++
     #include "JSONPrettify.h"
+```
     
   This one doesn't add spaces inbetween colons.
   
+```c++
     std::string json = "... some json data ...";
-    std::string pretty = boris::JSONPrettify(json);
-  
+    std::string pretty = boris::JSONPrettify( json );
+```
+    
   Neither does this one
   
+```c++
     std::string json = "... some json data ...";
-    std::string pretty = boris::JSONPrettify(json,boris::JSONPrettify_specifics::Colons::TIGHT);
+    std::string pretty = boris::JSONPrettify( json , boris::JSONPrettify_specifics::Colons::TIGHT );
+```
     
   This one adds spaces inbetween colons.
   
+```c++
     std::string json = "... some json data ...";
-    std::string pretty = boris::JSONPrettify(json,boris::JSONPrettify_specifics::Colons::SPACED);
+    std::string pretty = boris::JSONPrettify( json , boris::JSONPrettify_specifics::Colons::SPACED );
+```
