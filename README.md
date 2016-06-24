@@ -49,12 +49,13 @@ Into this:
   
 ```c++
     std::string json = "... some json data ...";
-    std::string pretty = boris::JSONPrettify( json , boris::JSONPrettify_specifics::Colons::TIGHT );
+    std::string pretty = boris::JSONPrettify( json , boris::Colons::TIGHT );
 ```
     
   This one adds spaces inbetween colons.
+  Spaces inbetween colons aren't fully complete - if you have colons in the middle of variable names or values it will put spaces. ie.: "a:b":1  ->  "a : b" : 1
   
 ```c++
     std::string json = "... some json data ...";
-    std::string pretty = boris::JSONPrettify( json , boris::JSONPrettify_specifics::Colons::SPACED );
+    std::string pretty = boris::JSONPrettify( json , boris::Colons::SPACED );
 ```
